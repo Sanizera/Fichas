@@ -1,0 +1,16 @@
+.inputs {
+  display: flex;
+  margin-bottom: 50px;
+}
+.aside {
+  background-color: #000000;
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  justify-items: center;
+  color: #ffffff;
+}

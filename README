@@ -1,0 +1,58 @@
+# Fichas
+
+## Purpose
+
+This project is designed to help manage and store customer records ("fichas") for a small business or personal use. It provides a simple web interface for entering customer information and saves all data in a structured JSON file on the server. The goal is to make it easy to register, organize, and retrieve customer details securely and efficiently.
+
+## What the Project Has Now
+
+- **Frontend:**
+  - HTML pages for scheduling, new customer registration, and login.
+  - JavaScript for navigation between pages.
+  - Input masks for CPF and phone number fields.
+  - Email format validation.
+  - Form submission to the backend.
+
+- **Backend:**
+  - Node.js server using Express.
+  - CORS enabled for cross-origin requests.
+  - Receives customer data via POST requests (`/save-file`).
+  - Stores all customer records in `fichas.json` as an array of objects.
+  - Responds with JSON messages for success or error.
+
+## How to Use
+
+1. Start the server:
+   ```
+   node server.js
+   ```
+   Or, for automatic restarts during development:
+   ```
+   nodemon server.js
+   ```
+
+2. Open the main HTML file (e.g., `src/routes/new_customer/customer.html`) in your browser.
+
+3. Fill out the customer form and submit. The data will be saved in `fichas.json`.
+
+## Project Structure
+
+```
+Fichas/
+├── fichas.json
+├── server.js
+├── README
+└── src/
+    ├── script.js
+    └── routes/
+        ├── login/
+        ├── new_customer/
+        └── schedule/
+```
+
+## Future Improvements
+
+- Add endpoints to retrieve and update customer records.
+- Improve frontend design and user experience.
+- Add authentication for secure access.
+- Export data or generate reports.

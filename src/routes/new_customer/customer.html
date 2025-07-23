@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omar</title>
+  <script src="./customer.js"></script>
+  <link rel="stylesheet" href="customer.css" />
+</head>
+
+<body>
+  <header>Omar</header>
+  <h1>Novo cliente</h1>
+  <div>
+    <div class="inputs">
+      <input type="text" name="nome" id="name" placeholder="Nome" />
+      <input type="text" name="sobrenome" id="surname" placeholder="Sobrenome" />
+      <input type="text" name="cpf" id="cpf" placeholder="CPF" />
+      <input type="date" name="nasc" id="birthday" placeholder="Data de nascimento" min="11" maxlength="11" />
+      <input type="text" name="profession" id="profession" placeholder="Profissão" />
+      <input type="text" name="occupation" id="occupation" placeholder="Ocupacão" />
+      <input type="text" name="indication" id="indication" placeholder="Indicação" />
+      <input type="text" name="religion" id="religion" placeholder="Religião" />
+    </div>
+
+    <h2>Endereço</h2>
+    <div class="inputs">
+      <input type="text" name="CEP" id="cep" placeholder="CEP" />
+      <input type="text" name="state" id="state" placeholder="Estado(sigla)" />
+      <input type="text" name="city" id="city" placeholder="Município" />
+      <input type="text" name="district" id="district" placeholder="Bairro" />
+      <input type="text" name="street" id="street" placeholder="Rua" />
+      <input type="text" name="number" id="number" placeholder="Número" />
+      <input type="text" name="complement" id="complement" placeholder="Complemento" />
+    </div>
+
+    <h2>Contato</h2>
+    <div class="inputs">
+      <input type="tel" name="phonenumber" id="phonenumber" placeholder="Telefone" maxlength="14" />
+      <input type="email" name="email" id="email" spellcheck="false" placeholder="E-mail" />
+    </div>
+
+    <button id="saveButton">salvar</button>
+  </div>
+  <button class="home" id="home">Home</button>
+</body>
+<aside class="aside" id="aside">
+  <h1>Nomes Cadastrados</h1>
+  <span></span>
+</aside>
+
+</html>
