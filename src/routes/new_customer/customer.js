@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const API_BASE_URL = 'http://localhost:2210';
-    const saveButton = document.getElementById('saveButton');
-    /*
+  const API_BASE_URL = 'http://localhost:2210'
+  const saveButton = document.getElementById('saveButton')
+  /*
       const surnameInput = document.querySelector('#sobrenome');
       const indicationInput = document.querySelector('#indication');
       const religionI = document.querySelector('#religion');
@@ -18,51 +18,92 @@ document.addEventListener('DOMContentLoaded', async () => {
       const aptI = document.querySelector('#apt');
       const blockI = document.querySelector('#block');
      */
-    const aside = document.querySelector('#aside');
-    const cpfInput = document.querySelector('#cpf');
-    const emailInput = document.querySelector('#email');
-    const emailValid = /^[A-Za-z\._\-0-9]+@[A-Za-z]+\.[a-z]{2,4}$/.test(
-        emailInput.value
-    )
-    const phoneInput = document.querySelector('#phonenumber')
-    cpfInput.addEventListener('input', e => {
-        let value = e.target.value;
-        let cpfPattern = value.replace(/\D/g, '');
-        cpfPattern = cpfPattern.replace(/(\d{3})(\d)/, '$1.$2');
-        cpfPattern = cpfPattern.replace(/(\d{3})(\d)/, '$1.$2');
-        cpfPattern = cpfPattern.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-        e.target.value = cpfPattern;
-    });
-    phoneInput.addEventListener('input', e => {
-        let value = e.target.value;
-        let phonePattern = value.replace(/\D/g, '');
-        phonePattern = phonePattern.substring(0, 11);
-        if (value.length > 10) {
-            phonePattern = phonePattern.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-        } else if (phonePattern.length > 6) {
-            phonePattern = phonePattern.replace(
-                /(\d{2})(\d{4})(\d{0,4})/,
-                '($1) $2-$3'
-            );
-        } else if (phonePattern.length > 2) {
-            phonePattern = phonePattern.replace(/(\d{2})(\d{0,5})/, '($1) $2');
-        }
-        e.target.value = phonePattern;
-    });
-    emailInput.addEventListener('input', e => {
-        let value = e.target.value
-        if (!value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-            emailInput.style.borderColor = 'red';
-            return false;
-        }
-        emailInput.style.borderColor = '';
-        return true;
-    });
-    saveButton.addEventListener('click', saveContent);
-    document.addEventListener('keyup', findKey);
+  const aside = document.querySelector('#aside')
+  const cpfInput = document.querySelector('#cpf')
+  const emailInput = document.querySelector('#email')
+  const emailValid = /^[A-Za-z\._\-0-9]+@[A-Za-z]+\.[a-z]{2,4}$/.test(
+    emailInput.value
+  )
+  const phoneInput = document.querySelector('#phonenumber')
+  cpfInput.addEventListener('input', e => {
+    let value = e.target.value
+    let cpfPattern = value.replace(/\D/g, '')
+    cpfPattern = cpfPattern.replace(/(\d{3})(\d)/, '$1.$2')
+    cpfPattern = cpfPattern.replace(/(\d{3})(\d)/, '$1.$2')
+    cpfPattern = cpfPattern.replace(/(\d{3})(\d{1,2})$/, '$1-$2')
+    e.target.value = cpfPattern
+  })
+  phoneInput.addEventListener('input', e => {
+    let value = e.target.value
+    let phonePattern = value.replace(/\D/g, '')
+    phonePattern = phonePattern.substring(0, 11)
+    if (value.length > 10) {
+      phonePattern = phonePattern.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+    } else if (phonePattern.length > 6) {
+      phonePattern = phonePattern.replace(
+        /(\d{2})(\d{4})(\d{0,4})/,
+        '($1) $2-$3'
+      )
+    } else if (phonePattern.length > 2) {
+      phonePattern = phonePattern.replace(/(\d{2})(\d{0,5})/, '($1) $2')
+    }
+    e.target.value = phonePattern
+  })
+  emailInput.addEventListener('input', e => {
+    let value = e.target.value
+    if (!value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+      emailInput.style.borderColor = 'red'
+      return false
+    }
+    emailInput.style.borderColor = ''
+    return true
+  })
+  const pressureopitions = document.querySelectorAll('input[name ="pressure"]')
+  const medicationDiv = document.querySelector('#medicationdiv')
+  const specDivs = [
+    'cranialdiv',
+    'spinediv',
+    'heartdiv',
+    'surgerydiv',
+    'diabetesdiv'
+  ]
+  const checkboxes = [
+    'cranialLesion',
+    'spineLesion',
+    'heartLesion',
+    'surgery',
+    'diabetes'
+  ]
+  saveButton.addEventListener('click', saveContent)
+  document.addEventListener('keyup', findKey)
 
-    async function saveContent(e) {
-        /*
+  for (opition of pressureopitions) {
+    opition.addEventListener('change', e => {
+      if (e.target.value === 'Alta' || e.target.value === 'Baixa') {
+        showhide(e.target.checked, medicationDiv)
+      } else {
+        showhide(false, medicationDiv)
+      }
+    })
+  }
+  for (let checkboxKey of checkboxes) {
+    let checkbox = document.getElementById(`${checkboxKey}`)
+    let divIndex = checkboxes.indexOf(`${checkboxKey}`)
+    let div = document.getElementById(`${specDivs[divIndex]}`)
+    checkbox.addEventListener('change', e => {
+      showhide(e.target.checked, div)
+    })
+    
+  }
+  function showhide (i, div) {
+    if (i) {
+      div.style.display = 'block'
+    } else {
+      div.style.display = 'none'
+    }
+  }
+  async function saveContent (e) {
+    /*
             //Em desuso
             console.log('Save button clicked')
             let name = nameInput.value;
@@ -81,74 +122,83 @@ document.addEventListener('DOMContentLoaded', async () => {
             let apt = aptI.value;
             let block = blockI.value;
             */
-        const keys = [
-            'name',
-            'surname',
-            'cpf',
-            'birthday',
-            'profession',
-            'occupation',
-            'indication',
-            'religion',
-            'cep',
-            'state',
-            'city',
-            'district',
-            'street',
-            'number',
-            'complement',
-            'phonenumber',
-            'email'
-        ];
-        let data = {}
-        let allFilled = true
-        for (let key of keys) {
-            const input = document.getElementById(key)
-            if (input && input.value.trim() !== '') {
-                data[key] = input.value
-            } else {
-                allFilled = false
-            }
-        };
+           let keys = [
+             'name',
+             'surname',
+             'cpf',
+             'birthday',
+             'profession',
+             'occupation',
+             'indication',
+             'religion',
+             'cep',
+             'state',
+             'city',
+             'district',
+             'street',
+             'number',
+             'complement',
+             'phonenumber',
+             'email'
+           ]
 
+    for (divId of specDivs) {
+      let div = document.getElementById(divId);
+      let specInputs = div.querySelectorAll('input')
+      specInputs.forEach(specInput => {
+        if (specInput.value !== '') {
+          keys.push(specInput.id)
+          
+        }
+      })
+    }
 
-        const emailValid = /^[A-Za-z\._\-0-9]+@[A-Za-z]+\.[a-z]{2,4}$/.test(emailInput.value);
+    let data = {}
+    let allFilled = true
+    for (let key of keys) {
+      const input = document.getElementById(key)
+      if (input && input.value.trim() !== '') {
+        data[key] = input.value
+      } else {
+        allFilled = false
+      }
+    }
 
-        if (allFilled && emailValid) {
-            try {
-                const response = await fetch(`${API_BASE_URL}/save-file`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                const json = await response.json();
-                console.log(json);
-                alert(json);
-            } catch (err) {
-                alert('erro ao salvar os dados');
-                console.error(err);
-            }
+    const emailValid = /^[A-Za-z\._\-0-9]+@[A-Za-z]+\.[a-z]{2,4}$/.test(
+      emailInput.value
+    )
 
+    if (allFilled && emailValid) {
+      try {
+        const response = await fetch(`${API_BASE_URL}/save-file`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        const json = await response.json()
+        console.log(json)
+        alert(json)
+      } catch (err) {
+        alert('erro ao salvar os dados')
+        console.error(err)
+      }
+    } else if (!emailValid) {
+      alert('o email é inválido')
+    } else {
+      alert('preencha todos os dados')
+      console.log(data)
+    }
+  }
+  const homeButton = document.querySelector('#home')
 
-        } else if (!emailValid) {
-            alert('o email é inválido');
+  homeButton.addEventListener('click', () => {
+    window.location.href = '../../main.html'
+    console.log('clicou')
+  })
 
-        } else {
-            alert('preencha todos os dados');
-            console.log(data);
-
-        };
-    };
-    const homeButton = document.querySelector('#home');
-
-    homeButton.addEventListener('click', () => {
-        window.location.href = '../../main.html';
-        console.log('clicou');
-    });
-
-    function findKey(e) {
-        if (e.key == 'Enter') {
-            saveContent();
-        };
-    };
-});
+  function findKey (e) {
+    if (e.key == 'Enter') {
+      saveContent()
+    }
+  }
+})

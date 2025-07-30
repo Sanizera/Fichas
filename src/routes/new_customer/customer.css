@@ -14,3 +14,6 @@
   justify-items: center;
   color: #ffffff;
 }
+.hide{
+  display: none;
+}

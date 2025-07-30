@@ -41,9 +41,84 @@
       <input type="email" name="email" id="email" spellcheck="false" placeholder="E-mail" />
     </div>
 
-    <button id="saveButton">salvar</button>
-  </div>
-  <button class="home" id="home">Home</button>
+    <div>
+      <label for="high">Alta</label>
+      <input type="radio" id="high" value="Alta" name="pressure" />
+      <label for="normal">Normal</label>
+      <input type="radio" id="normal" value="Normal" name="pressure" />
+      <label for="low">Baixa</label>
+      <input type="radio" id="low" value="Baixa" name="pressure" />
+      <br />
+      <div class="hide" id="medicationdiv">
+        <label for="medication">
+          Medicação usada regularmente por mais de um ano e/ou até um ano atrás?
+          Especifique:</label>
+          <br />
+          <input type="text" id="medication" />
+        </div>
+        <br>
+        <div>
+          <strong>Leasão cranial</strong>
+          <input type="checkbox" name="cranial" id="cranialLesion" value="LesãoCranial">
+          <br>
+          <label for="cranialLesion">tumores, edemas, pancadas com perda de memória, desmaios, coágulos, derrames
+            etc</label>
+            <div class="hide" id="cranialdiv">
+              <label for="cranialLesionTime">Há quanto tempo?</label>
+              <input type="text" name="tempo" id="cranialLesionTime">
+              <label for="cranialLesionSpec">Especifique</label>
+              <input type="text" name="cranialLesionSpec" id="cranialLesionSpec">
+            </div>
+          </div>
+          <div>
+            <strong>Lesão na coluna vertebral</strong>
+            <input type="checkbox" id="spineLesion" value="LesãoNaColuna">
+            <br>
+            <label for="spineLesion">Hérnia de disco, osteofitos/bico de papagaio, artrose, osteoporose etc</label>
+            <div class="hide" id="spinediv">
+              <label for="spineLesionTime">Há quanto tempo?</label>
+              <input type="text" name="tempo" id="spineLesionTime">
+              <label for="spineLesionSpec">Especifique</label>
+              <input type="text" name="spineLesionSpec" id="spineLesionSpec">
+            </div>
+          </div>
+          <div>
+            <strong>Lesões Coronárias</strong>
+            <input type="checkbox" id="heartLesion" value="LesãoCoronária">
+            <br>
+            <label for="heartLesion">Cirurgia, pontes, marcapasso, insuficiência cardíaca etc</label>
+            <div class="hide" id="heartdiv">
+              <label for="heartLesionTime">Há quanto tempo?</label>
+              <input type="text" name="tempo" id="heartLesionTime">
+              <label for="heartLesionSpec">Especifique</label>
+              <input type="text" name="heartLesionSpec" id="heartLesionSpec">
+            </div>
+          </div>
+            <div>
+         <strong>Cirurgias</strong>
+         <input type="checkbox" id="surgery" value="FezCirurgia">
+         <br>
+         <div class="hide" id="surgerydiv">
+           <label for="surgeryTime">Há quanto tempo?</label>
+           <input type="text" name="tempo" id="surgryTime">
+           <label for="surgerySpec">Especifique</label>
+           <input type="text" name="surgerySpec" id="surgerySpec">
+          </div>
+        </div>
+        <div>
+          <strong>Diabetes</strong>
+          <input type="checkbox" id="diabetes" value="TemDiabetes">
+          <br>
+          <div class="hide" id="diabetesdiv">
+            <label for="diabetesTime">Há quanto tempo?</label>
+            <input type="text" name="tempo" id="diabetesTime">
+            
+          </div>
+        </div>
+      </div>
+      <button id="saveButton">salvar</button>
+      </div><br>
+      <button class="home" id="home">Home</button>
 </body>
 <aside class="aside" id="aside">
   <h1>Nomes Cadastrados</h1>
