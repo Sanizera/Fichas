@@ -26,10 +26,6 @@ This project is designed to help manage and store customer records ("fichas") fo
    ```
    node server.js
    ```
-   Or, for automatic restarts during development:
-   ```
-   nodemon server.js
-   ```
 
 2. Open the main HTML file (e.g., `src/routes/new_customer/customer.html`) in your browser.
 

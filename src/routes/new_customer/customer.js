@@ -1,23 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const API_BASE_URL = 'http://localhost:2210'
   const saveButton = document.getElementById('saveButton')
-  /*
-      const surnameInput = document.querySelector('#sobrenome');
-      const indicationInput = document.querySelector('#indication');
-      const religionI = document.querySelector('#religion');
-      const birthdayInput = document.querySelector('#nasc');
-      const cpfInput = document.querySelector('#cpf');
-  
-      const cepI = document.querySelector('#CEP');
-      const stateI = document.querySelector('#state');
-      const cityI = document.querySelector('#city');
-      const bairroI = document.querySelector('#bairro');
-      const streetI = document.querySelector('#street');
-      const numberI = document.querySelector('#number');
-      const complementI = document.querySelector('#complement');
-      const aptI = document.querySelector('#apt');
-      const blockI = document.querySelector('#block');
-     */
+
   const aside = document.querySelector('#aside')
   const cpfInput = document.querySelector('#cpf')
   const emailInput = document.querySelector('#email')
@@ -103,25 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
   async function saveContent (e) {
-    /*
-            //Em desuso
-            console.log('Save button clicked')
-            let name = nameInput.value;
-            let surname = surnameInput.value;
-            let cpf = cpfInput.value;
-            let birthday = birthdayInput.value;
-            let indication = indicationInput.value;
-            let religion = religionI.value;
-            let cep = cepI.value;
-            let state = stateI.value;
-            let city = cityI.value;
-            let bairro = bairroI.value;
-            let street = streetI.value;
-            let number = numberI.value;
-            let complement = complementI.value;
-            let apt = aptI.value;
-            let block = blockI.value;
-            */
+
            let keys = [
              'name',
              'surname',
@@ -193,7 +159,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   homeButton.addEventListener('click', () => {
     window.location.href = '../../main.html'
-    console.log('clicou')
+  
   })
 
   function findKey (e) {

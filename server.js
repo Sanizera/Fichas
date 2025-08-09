@@ -31,7 +31,22 @@ app.post('/save-file', (req, res) => {
     })
   })
 })
+app.get('/search', (req, res) => {
+  const query = req.query.q ? req.query.q.toLowerCase() : '';
+  fs.readFile('fichas.json', 'utf8', (err, data)=>{
+    if (err) return res.status(500).json({error: 'Error reading file'});
+    let fichas = [];
+    try{
+      fichas = JSON.parse(data);
+    } catch (e) {
+      console.error('Error parsing fichas.json:', e);
+      return res.status(500).json({ error: 'Error parsing data file' });
+    }
 
+    const results = fichas;
+    res.json(results);
+  })
+})
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`)
 })
