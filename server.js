@@ -1,12 +1,16 @@
 const express = require('express')
 const fs = require('fs')
+const path = require('path')
 const cors = require('cors')
 const app = express()
 const port = 2210
 
-app.use(cors())
-app.use(express.json())
-
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'src')));
+app.get('/', (req, res) =>{
+  res.sendFile(path.join(__dirname, 'src', 'main.html'))
+})
 app.post('/save-file', (req, res) => {
   // Read the existing file or start with an empty array
   fs.readFile('fichas.json', 'utf8', (err, data) => {

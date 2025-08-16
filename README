@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This project is designed to help manage and store customer records ("fichas") for a small business or personal use. It provides a simple web interface for entering customer information and saves all data in a structured JSON file on the server. The goal is to make it easy to register, organize, and retrieve customer details securely and efficiently.
+This project helps manage and store customer records ("fichas") for small businesses or personal use. It provides a simple web interface for entering customer information and saves all data in a structured JSON file on the server. The goal is to make it easy to register, organize, and retrieve customer details securely and efficiently.
 
-## What the Project Has Now
+## Features
 
 - **Frontend:**
   - HTML pages for scheduling, new customer registration, and login.
@@ -16,20 +16,33 @@ This project is designed to help manage and store customer records ("fichas") fo
 - **Backend:**
   - Node.js server using Express.
   - CORS enabled for cross-origin requests.
+  - Serves all static files from the `src` directory.
   - Receives customer data via POST requests (`/save-file`).
   - Stores all customer records in `fichas.json` as an array of objects.
   - Responds with JSON messages for success or error.
+  - Search endpoint for retrieving records.
 
-## How to Use
+## How to Run
 
-1. Start the server:
+1. Install dependencies:
    ```
-   node server.js
+   npm install
    ```
 
-2. Open the main HTML file (e.g., `src/routes/new_customer/customer.html`) in your browser.
+2. For development (auto-reload on changes):
+   ```
+   npm run dev
+   ```
 
-3. Fill out the customer form and submit. The data will be saved in `fichas.json`.
+3. For production:
+   ```
+   npm start
+   ```
+
+4. Open your browser and go to:
+   ```
+   http://localhost:2210/
+   ```
 
 ## Project Structure
 
@@ -37,14 +50,22 @@ This project is designed to help manage and store customer records ("fichas") fo
 Fichas/
 ├── fichas.json
 ├── server.js
+├── package.json
 ├── README
 └── src/
+    ├── styles/
     ├── script.js
     └── routes/
         ├── login/
         ├── new_customer/
         └── schedule/
+    └── main.html
 ```
+
+## Notes
+
+- All frontend files in the `src` directory are served by the Express server.
+- For automatic browser reload on HTML/CSS changes, use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension in VS Code or refresh the page manually.
 
 ## Future Improvements
 
