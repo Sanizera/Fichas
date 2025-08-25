@@ -1,8 +1,9 @@
+const qs = (el)=> document.querySelector(el);
 document.addEventListener('DOMContentLoaded', e => {
-  const schedulebutton = document.querySelector('#schedule');
-  const newcustomerbutton = document.querySelector('#newcustomer');
-  const loginbutton = document.querySelector('#login');
- const customersbutton = document.querySelector('#customers');
+  const schedulebutton = qs('#schedule');
+  const newcustomerbutton = qs('#newcustomer');
+  const loginbutton = qs('#login');
+ const customersbutton = qs('#customers');
   schedulebutton.addEventListener('click', () => {
     window.location.href = 'routes/schedule/schedule.html'
     

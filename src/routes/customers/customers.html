@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-      <link rel="stylesheet" href="../../styles/default.css">
-
-<head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="../../styles/default.css" />
+  <link rel="stylesheet" href="./customers.css" />
+  <div class="models">
+    <div class="customerModal">
+      <div class="customerWindowBody">
+        <div class="personalInfo">
+          <div class="customerName">Nome:<span>--</span></div>
+          <div class="cpf">CPF:<span>--</span></div>
+          <div class="birthday">Data de nascimento:<span>--</span></div>
+          <div class="profession">Profissão:<span>--</span></div>
+          <div class="occupation">Ocupação:<span>--</span></div>
+          <div class="indication">Indicação:<span>--</span></div>
+          <div class="religion">Religião:<span>--</span></div>
+        </div>
+        <div class="adressInfo">
+          <div class="cep">CEP:<span>--</span></div>
+          <div class="state">Estado:<span>--</span></div>
+          <div class="city">Cidade:<span>--</span></div>
+          <div class="district">Bairro:<span>--</span></div>
+          <div class="street">Rua:<span>--</span></div>
+          <div class="number">Número:<span>--</span></div>
+          <div class="complement">Complemento:<span>--</span></div>
+        </div>
+        <div class="contactInfo">
+          <div class="phonenumber">Telefone:<span>--</span></div>
+          <div class="email">email:<span>--</span></div>
+        </div>
+        <button class="closeButton">Fechar</button>
+      </div>
+    </div>
+  </div>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./customers.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Clientes</h1>
     <div>
-        <label for="searchInput">Buscar Clientes:</label>
-        <input type="text" id="searchInput">
-        
+      <label for="searchInput">Buscar Clientes:</label>
+      <input type="text" id="searchInput" />
     </div>
-    <div id="results">
-
+    <div>
+      <div id="results">
+        
+      </div>
     </div>
     <button id="home">Home</button>
-</body>
+  </body>
 </html>

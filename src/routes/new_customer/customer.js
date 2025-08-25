@@ -1,14 +1,15 @@
+const qs = (el)=> document.querySelector(el);
 document.addEventListener('DOMContentLoaded', async () => {
   const API_BASE_URL = 'http://localhost:2210'
   const saveButton = document.getElementById('saveButton')
 
-  const aside = document.querySelector('#aside')
-  const cpfInput = document.querySelector('#cpf')
-  const emailInput = document.querySelector('#email')
+  const aside = qs('#aside')
+  const cpfInput = qs('#cpf')
+  const emailInput = qs('#email')
   const emailValid = /^[A-Za-z\._\-0-9]+@[A-Za-z]+\.[a-z]{2,4}$/.test(
     emailInput.value
   )
-  const phoneInput = document.querySelector('#phonenumber')
+  const phoneInput = qs('#phonenumber')
   cpfInput.addEventListener('input', e => {
     let value = e.target.value
     let cpfPattern = value.replace(/\D/g, '')
@@ -42,8 +43,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     emailInput.style.borderColor = ''
     return true
   })
-  const pressureopitions = document.querySelectorAll('input[name ="pressure"]')
-  const medicationDiv = document.querySelector('#medicationdiv')
+  const pressureopitions = qsAll('input[name ="pressure"]')
+  const medicationDiv = qs('#medicationdiv')
   const specDivs = [
     'cranialdiv',
     'spinediv',
@@ -155,7 +156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.log(data)
     }
   }
-  const homeButton = document.querySelector('#home')
+  const homeButton = qs('#home')
 
   homeButton.addEventListener('click', () => {
     window.location.href = '../../main.html'
