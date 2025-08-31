@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   const emailValid = /^[A-Za-z\._\-0-9]+@[A-Za-z]+\.[a-z]{2,4}$/.test(
     emailInput.value
   )
+  const cepInput = qs('#cep')
+  cepInput.addEventListener('input', e => {
+    let value = e.target.value;
+    let cepPattern= value.replace(/\D/g, "");
+    cepPattern = cepPattern.replace(/(\d{5})(\d)/, '$1-$2');
+    e.target.value = cepPattern;
+  })
   const phoneInput = qs('#phonenumber')
   cpfInput.addEventListener('input', e => {
     let value = e.target.value
@@ -43,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     emailInput.style.borderColor = ''
     return true
   })
+  
   const pressureopitions = qsAll('input[name ="pressure"]')
   const medicationDiv = qs('#medicationdiv')
   const specDivs = [

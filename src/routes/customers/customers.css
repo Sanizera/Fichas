@@ -30,3 +30,20 @@
     size:auto;
     
 }
+.customerWindowBody span{
+    margin: 2px;
+}
+.customerWindowBody div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    items:center;
+    size:auto;
+    font-weight: 600;
+    margin: 5px;
+}
+.closeButton{
+    border:none;
+    border-radius: 5px;
+    width:auto;
+}
