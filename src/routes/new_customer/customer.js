@@ -1,4 +1,5 @@
 const qs = (el)=> document.querySelector(el);
+const qsAll = (el)=> document.querySelectorAll(el);
 document.addEventListener('DOMContentLoaded', async () => {
   const API_BASE_URL = 'http://localhost:2210'
   const saveButton = document.getElementById('saveButton')
